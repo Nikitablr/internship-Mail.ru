@@ -1,41 +1,23 @@
 from pages.main_page import MainPage
-from selenium.webdriver.common.by import By
+from locators import locators
 
 
-
-class MailPage(MainPage):
-    CREATE_MESSAGE_BUTTON = (By.CSS_SELECTOR, '.compose-button__wrapper')
-    WHOM_FIELD = (By.CSS_SELECTOR, '.container--H9L5q')
-    SAVE_DRAFT = (By.XPATH, '//button[@data-test-id="save"]')
-    CLOSE_MESSAGE_WINDOW = (By.XPATH, '//button[@title="Закрыть"]')
-    RECEPIENTS_EMAIL = (By.CSS_SELECTOR, '.contacts--1ofjA')
-    DRAFT_PAGE_BUTTON = (By.XPATH, '//*[@id="sideBarContent"]/div/nav/a[9]')
-    MESSAGE_IN_DRAFT = (By.XPATH, '//span[@class="ll-crpt"]')
-    USER_EMAIL = (By.XPATH, '//div/span[@class="text--1tHKB"]')
+class MailPage(MainPage): # move locators here
 
     def click_create_message(self):
-        self.click(*MailPage.CREATE_MESSAGE_BUTTON)
+        self.browser.find_element(*locators.CREATE_MESSAGE_BUTTON).click()
 
-    # def random_email(self):
-    #     fake = Faker()
-    #     fake.pystr(min_chars=None, max_chars=10)
-    #     email = fake.email()
-    #     return str(email)
-
-    def enter_random_email(self, email):
-        self.browser.find_element(*MailPage.WHOM_FIELD).send_keys(email)
+    def enter_email(self): # change this method to receive a string
+        self.browser.find_element(*locators.WHOM_FIELD).send_keys('rudakby@gmail.com')
 
     def click_save_draft(self):
-        self.click(*MailPage.SAVE_DRAFT)
+        self.browser.find_element(*locators.SAVE_DRAFT).click()
 
     def click_close_message_window(self):
-        self.click(*MailPage.CLOSE_MESSAGE_WINDOW)
+        self.browser.find_element(*locators.CLOSE_MESSAGE_WINDOW).click()
 
     def open_draft_page(self):
-        self.click(*MailPage.DRAFT_PAGE_BUTTON)
+        self.browser.find_element(*locators.DRAFT_PAGE_BUTTON).click()
 
     def message_in_draft(self):
-        mess = self.browser.find_element(*MailPage.MESSAGE_IN_DRAFT)
-        return mess.text
-
-
+        assert self.browser.find_element(*locators.MESSAGE_IN_DRAFT)
