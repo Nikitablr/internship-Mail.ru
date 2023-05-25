@@ -8,3 +8,4 @@ def browser():
     driver.implicitly_wait(10)
     yield driver
     driver.close()
+
