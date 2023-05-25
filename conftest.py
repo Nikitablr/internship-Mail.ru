@@ -8,4 +8,4 @@ def browser():
     driver = webdriver.Chrome(ChromeDriverManager().install())
     driver.implicitly_wait(10)
     yield driver
-    time.sleep(40)
+    driver.close()
