@@ -1,25 +1,32 @@
 from pages.main_page import MainPage
-from locators import locators
+from selenium.webdriver.common.by import By
 
 
 class MailPage(MainPage):
+    CREATE_MESSAGE_BUTTON = (By.CSS_SELECTOR, '.compose-button__wrapper')
+    WHOM_FIELD = (By.CSS_SELECTOR, '.container--H9L5q')
+    SAVE_DRAFT = (By.XPATH, '//button[@data-test-id="save"]')
+    CLOSE_MESSAGE_WINDOW = (By.XPATH, '//button[@title="Закрыть"]')
+    RECEPIENTS_EMAIL = (By.CSS_SELECTOR, '.contacts--1ofjA')
+    DRAFT_PAGE_BUTTON = (By.XPATH, '//*[@id="sideBarContent"]/div/nav/a[9]')
+    MESSAGE_IN_DRAFT = (By.CSS_SELECTOR, '.llc__background')
 
     def click_create_message(self):
-        self.browser.find_element(*locators.CREATE_MESSAGE_BUTTON).click()
+        self.browser.find_element(*MailPage.CREATE_MESSAGE_BUTTON).click()
 
     def enter_email(self):
-        self.browser.find_element(*locators.WHOM_FIELD).send_keys('rudakby@gmail.com')
+        self.browser.find_element(*MailPage.WHOM_FIELD).send_keys('rudakby@gmail.com')
 
     def click_save_draft(self):
-        self.browser.find_element(*locators.SAVE_DRAFT).click()
+        self.browser.find_element(*MailPage.SAVE_DRAFT).click()
 
     def click_close_message_window(self):
-        self.browser.find_element(*locators.CLOSE_MESSAGE_WINDOW).click()
+        self.browser.find_element(*MailPage.CLOSE_MESSAGE_WINDOW).click()
 
     def open_draft_page(self):
-        self.browser.find_element(*locators.DRAFT_PAGE_BUTTON).click()
+        self.browser.find_element(*MailPage.DRAFT_PAGE_BUTTON).click()
 
     def message_in_draft(self):
-        assert self.browser.find_element(*locators.MESSAGE_IN_DRAFT)
+        assert self.browser.find_element(*MailPage.MESSAGE_IN_DRAFT)
 
 
