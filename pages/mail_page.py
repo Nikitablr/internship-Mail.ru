@@ -12,16 +12,16 @@ class MailPage(MainPage):
     MESSAGE_IN_DRAFT = (By.CSS_SELECTOR, '.llc__background')
 
     def click_create_message(self):
-        self.browser.find_element(*MailPage.CREATE_MESSAGE_BUTTON).click()
+        self.click(*MailPage.CREATE_MESSAGE_BUTTON)
 
     def enter_email(self):
         self.browser.find_element(*MailPage.WHOM_FIELD).send_keys('rudakby@gmail.com')
 
     def click_save_draft(self):
-        self.browser.find_element(*MailPage.SAVE_DRAFT).click()
+        self.click(*MailPage.SAVE_DRAFT)
 
     def click_close_message_window(self):
-        self.browser.find_element(*MailPage.CLOSE_MESSAGE_WINDOW).click()
+        self.click(*MailPage.CLOSE_MESSAGE_WINDOW)
 
     def open_draft_page(self):
         self.browser.find_element(*MailPage.DRAFT_PAGE_BUTTON).click()
