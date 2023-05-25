@@ -2,7 +2,6 @@ from pages.main_page import MainPage
 from selenium.webdriver.common.by import By
 
 
-
 class MailPage(MainPage):
     CREATE_MESSAGE_BUTTON = (By.CSS_SELECTOR, '.compose-button__wrapper')
     WHOM_FIELD = (By.CSS_SELECTOR, '.container--H9L5q')
@@ -37,5 +36,3 @@ class MailPage(MainPage):
     def message_in_draft(self):
         mess = self.browser.find_element(*MailPage.MESSAGE_IN_DRAFT)
         return mess.text
-
-

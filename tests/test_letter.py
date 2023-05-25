@@ -17,7 +17,3 @@ def test_add_letter_to_draft(browser):
     mail_page.click_close_message_window()
     mail_page.open_draft_page()
     assert 'rudakby@gmail.com' in mail_page.message_in_draft()
-
-
-
-
