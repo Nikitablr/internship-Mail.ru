@@ -7,3 +7,4 @@ class BasePage:
         url = "https://mail.ru/"
         self.browser.get(url)
 
+    # should rewrite basic selenium methods here. click(locator) => find_element(locator).click()

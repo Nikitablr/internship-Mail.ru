@@ -2,12 +2,12 @@ from pages.main_page import MainPage
 from locators import locators
 
 
-class MailPage(MainPage):
+class MailPage(MainPage): # move locators here
 
     def click_create_message(self):
         self.browser.find_element(*locators.CREATE_MESSAGE_BUTTON).click()
 
-    def enter_email(self):
+    def enter_email(self): # change this method to receive a string
         self.browser.find_element(*locators.WHOM_FIELD).send_keys('rudakby@gmail.com')
 
     def click_save_draft(self):
@@ -21,5 +21,3 @@ class MailPage(MainPage):
 
     def message_in_draft(self):
         assert self.browser.find_element(*locators.MESSAGE_IN_DRAFT)
-
-
