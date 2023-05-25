@@ -2,6 +2,7 @@ from pages.main_page import MainPage
 from selenium.webdriver.common.by import By
 
 
+
 class MailPage(MainPage):
     CREATE_MESSAGE_BUTTON = (By.CSS_SELECTOR, '.compose-button__wrapper')
     WHOM_FIELD = (By.CSS_SELECTOR, '.container--H9L5q')
@@ -9,13 +10,20 @@ class MailPage(MainPage):
     CLOSE_MESSAGE_WINDOW = (By.XPATH, '//button[@title="Закрыть"]')
     RECEPIENTS_EMAIL = (By.CSS_SELECTOR, '.contacts--1ofjA')
     DRAFT_PAGE_BUTTON = (By.XPATH, '//*[@id="sideBarContent"]/div/nav/a[9]')
-    MESSAGE_IN_DRAFT = (By.CSS_SELECTOR, '.llc__background')
+    MESSAGE_IN_DRAFT = (By.XPATH, '//span[@class="ll-crpt"]')
+    USER_EMAIL = (By.XPATH, '//div/span[@class="text--1tHKB"]')
 
     def click_create_message(self):
         self.click(*MailPage.CREATE_MESSAGE_BUTTON)
 
-    def enter_email(self):
-        self.browser.find_element(*MailPage.WHOM_FIELD).send_keys('rudakby@gmail.com')
+    # def random_email(self):
+    #     fake = Faker()
+    #     fake.pystr(min_chars=None, max_chars=10)
+    #     email = fake.email()
+    #     return str(email)
+
+    def enter_random_email(self, email):
+        self.browser.find_element(*MailPage.WHOM_FIELD).send_keys(email)
 
     def click_save_draft(self):
         self.click(*MailPage.SAVE_DRAFT)
@@ -24,9 +32,10 @@ class MailPage(MainPage):
         self.click(*MailPage.CLOSE_MESSAGE_WINDOW)
 
     def open_draft_page(self):
-        self.browser.find_element(*MailPage.DRAFT_PAGE_BUTTON).click()
+        self.click(*MailPage.DRAFT_PAGE_BUTTON)
 
     def message_in_draft(self):
-        assert self.browser.find_element(*MailPage.MESSAGE_IN_DRAFT)
+        mess = self.browser.find_element(*MailPage.MESSAGE_IN_DRAFT)
+        return mess.text
 
 

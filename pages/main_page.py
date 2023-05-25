@@ -19,16 +19,16 @@ class MainPage(BasePage):
     def click_allow_button(self):
         self.click(*MainPage.ALLOW_BUTTON)
 
-    def fill_email_address_field(self):
+    def fill_email_address_field(self, email):
         frame = self.browser.find_element(*MainPage.LOGIN_FRAME)
         self.browser.switch_to.frame(frame)
-        self.browser.find_element(*MainPage.EMAIL_FIELD).send_keys('costartrial')
+        self.browser.find_element(*MainPage.EMAIL_FIELD).send_keys(email)
 
     def click_enter_password_button(self):
         self.click(*MainPage.ENTER_PASSWORD_BUTTON)
 
-    def enter_password_button(self):
-        self.browser.find_element(*MainPage.PASSWORD_FIELD).send_keys("Costar12345!")
+    def enter_password(self, password):
+        self.browser.find_element(*MainPage.PASSWORD_FIELD).send_keys(password)
 
     def click_login_button_password(self):
         self.click(*MainPage.LOGIN_BUTTON_PASSWORD)
