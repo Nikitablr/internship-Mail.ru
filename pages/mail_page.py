@@ -5,6 +5,8 @@ from selenium.webdriver.common.by import By
 
 class MailPage(MainPage):
     CREATE_MESSAGE_BUTTON = (By.CSS_SELECTOR, '.compose-button__wrapper')
+
+    
     WHOM_FIELD = (By.CSS_SELECTOR, '.container--H9L5q')
     SAVE_DRAFT = (By.XPATH, '//button[@data-test-id="save"]')
     CLOSE_MESSAGE_WINDOW = (By.XPATH, '//button[@title="Закрыть"]')
