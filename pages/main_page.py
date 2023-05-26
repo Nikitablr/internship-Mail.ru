@@ -4,7 +4,6 @@ from pages.base_page import BasePage
 
 class MainPage(BasePage):
     LOGIN_BUTTON = (By.CSS_SELECTOR, '.ph-login')
-
     ALLOW_BUTTON = (By.CSS_SELECTOR, '.cmpboxbtn.cmpboxbtnyes')
     LOGIN_FRAME = (By.CSS_SELECTOR, ".ag-popup__frame__layout__iframe")
     EMAIL_FIELD = (By.NAME, "username")
