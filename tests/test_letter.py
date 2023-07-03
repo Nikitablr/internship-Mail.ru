@@ -1,6 +1,7 @@
 from pages.main_page import MainPage
 from pages.mail_page import MailPage
 
+
 def test_add_letter_to_draft(browser):
     main_page = MainPage(browser)
     main_page.go_to_site()
@@ -17,7 +18,3 @@ def test_add_letter_to_draft(browser):
     mail_page.click_close_message_window()
     mail_page.open_draft_page()
     assert 'rudakby@gmail.com' in mail_page.message_in_draft()
-
-
-
-
