@@ -1,6 +1,8 @@
 from pages.main_page import MainPage
 from pages.mail_page import MailPage
+import allure
 
+@allure.title('Test add letter to draft')
 def test_add_letter_to_draft(browser):
     main_page = MainPage(browser)
     main_page.go_to_site()
