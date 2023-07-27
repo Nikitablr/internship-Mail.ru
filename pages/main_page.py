@@ -27,8 +27,11 @@ class MainPage(BasePage):
     def click_enter_password_button(self):
         self.click(*MainPage.ENTER_PASSWORD_BUTTON)
 
+    # def enter_password(self, password):
+    #     self.browser.find_element(*MainPage.PASSWORD_FIELD).send_keys(password)
+
     def enter_password(self, password):
-        self.browser.find_element(*MainPage.PASSWORD_FIELD).send_keys(password)
+        self.enter(password, *MainPage.PASSWORD_FIELD)
 
     def click_login_button_password(self):
         self.click(*MainPage.LOGIN_BUTTON_PASSWORD)

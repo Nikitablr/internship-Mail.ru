@@ -16,14 +16,9 @@ class MailPage(MainPage):
     def click_create_message(self):
         self.click(*MailPage.CREATE_MESSAGE_BUTTON)
 
-    # def random_email(self):
-    #     fake = Faker()
-    #     fake.pystr(min_chars=None, max_chars=10)
-    #     email = fake.email()
-    #     return str(email)
-
     def enter_random_email(self, email):
-        self.browser.find_element(*MailPage.WHOM_FIELD).send_keys(email)
+        self.enter(email, *MailPage.WHOM_FIELD)
+        #self.browser.find_element(*MailPage.WHOM_FIELD).send_keys(email)
 
     def click_save_draft(self):
         self.click(*MailPage.SAVE_DRAFT)
