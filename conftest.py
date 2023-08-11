@@ -15,7 +15,7 @@ capabilities = {
 
 @pytest.fixture(scope="function")
 def browser():
-    driver = webdriver.Remote(command_executor="http://localhost:4444/wd/hub/", desired_capabilities=capabilities)
+    driver = webdriver.Remote(command_executor="http://localhost:8080", desired_capabilities=capabilities)
     yield driver
     driver.close()
 
